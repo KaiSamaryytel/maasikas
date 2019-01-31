@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <title>Sõbralik Karu</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="img/favicon1.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/maasustyle.css">
+    <link rel="js" href="js/maasujs.js">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Mobiscroll JS and CSS Includes -->
+    <link rel="stylesheet" href="css/mobiscroll.javascript.min.css">
+    <script src="js/mobiscroll.javascript.min.js"></script>
+
+</head>
+<body>
+
+<!--Avaleht. Esimene vaade-->
+<!--Header-->
+<div data-role="page" id="pageone" data-position="fixed">
+    <div id="header" data-role="header" data-position="fixed">
+        <h3>Maasikas</h3>
+    </div>
+
+    <!--Login-->
+    <div data-role="content">
+        <form action="#pageone" method="get" data-transition="flow">
+            <input type="email" id="user" placeholder="demo@example.com">
+            <input type="password" id="password" placeholder="Parool">
+
+            <div data-role = "content">
+                <div style="text-align : center;">
+                    <img src="img/maasikas.jpg" width="200px" height="200px">
+                </div>
+            </div>
+
+            <a href="#pagetwo" data-role="button" data-transition="flow" data-position="fixed">Logi sisse</a>
+            /* Peaks hoopis sellise ilmselt lisama: https://developers.google.com/identity/ */
+        </form>
+    </div>
+</div>
+
+
+<!--Kalendri vaade. Teine vaade-->
+<!--Header-->
+<div data-role="page" id="pagetwo" data-position="fixed">
+    <div id="header" data-role="header" data-position="fixed">
+        <a data-rel="back" data-transition="flow">Tagasi</a>
+        <h3>Tere päevast</h3>
+        <a href="#pageone">Logi välja</a>
+        <div data-role="navbar">
+
+            <ul>
+                <li><a href="#" data-icon="calendar">kalender</a></li>
+                <li><a href="#" data-icon="action">statistika</a></li>
+                <li><a href="#" data-icon="info">teaduslik info</a></li>
+                <li><a href="#" data-icon="user">isikustamine</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div mbsc-page class="demo-marked-day-description">
+    <div class="md-marked">
+        <div id="demo" placeholder="Please Select..."></div>
+    
+        <ul class="md-marked-list mbsc-cloak">
+            <li data-id="1">
+                <span class="md-marked-points md-points-type1"></span> Päev 1
+            </li>
+            <li data-id="2">
+                <span class="md-marked-points md-points-type2"></span> Päev 2
+            </li>
+            <li data-id="3">
+                <span class="md-marked-points md-points-type3"></span> Päev 3
+            </li>
+            <li data-id="4">
+                <span class="md-marked-points md-points-type4"></span> Päev 4
+            </li>
+            <li data-id="5">
+                <span class="md-marked-points md-points-type5"></span> Päev 5
+            </li>
+        </ul>
+
+    </div>
+
+</div>
+
+<script>
+    mobiscroll.settings = {
+        theme: 'ios',
+        lang: 'en'
+    };
+
+    var now = new Date();
+    
+    mobiscroll.calendar('#demo', {
+        display: 'inline',        // Specify display mode like: display: 'bottom' or omit setting to use default
+        layout: 'liquid',         // More info about layout: https://docs.mobiscroll.com/4-5-3/javascript/calendar#opt-layout
+        lang: 'en',               // Specify language like: lang: 'pl' or omit setting to use default
+        theme: 'ios',             // Specify theme like: theme: 'ios' or omit setting to use default
+        markedDisplay: 'bottom',  // More info about markedDisplay: https://docs.mobiscroll.com/4-5-3/javascript/calendar#opt-markedDisplay
+        marked: [{                // More info about marked: https://docs.mobiscroll.com/4-5-3/javascript/calendar#opt-marked
+            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5),
+            color: 'rgb(28, 161, 227)'
+        }, {
+            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 6),
+            color: 'rgb(28, 161, 227)'
+        }, {
+            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 7),
+            color: 'rgb(28, 161, 227)'
+        }, {
+            d: new Date(now.getFullYear(), now.getMonth() + 1, 15),
+            color: 'rgb(28, 161, 227)'
+        }, {
+            d: '11/30',
+            color: 'rgb(163, 0, 38)'
+        }, {
+            d: '5/23',
+            color: 'rgb(163, 0, 38)'
+        }, {
+            d: '3/12',
+            color: 'rgb(163, 0, 38)'
+        }, {
+            d: '14',
+            color: 'rgb(204,204,0)'
+        }, {
+            d: 'w5',
+            color: 'rgb(34, 139, 34)'
+        }, {
+            d: '1/1',
+            color: 'rgb(250,104,0)'
+        }, {
+            d: '1/2',
+            color: 'rgb(250,104,0)'
+        }, {
+            d: '6/4',
+            color: 'rgb(250,104,0)'
+        }, {
+            d: '8/4',
+            color: 'rgb(250,104,0)'
+        }, {
+            d: '12/25',
+            color: 'rgb(250,104,0)'
+        }, {
+            d: '12/26',
+            color: 'rgb(250,104,0)'
+        }]
+    });
+    
+    mobiscroll.listview('.md-marked-list', {
+        lang: 'en',               // Specify language like: lang: 'pl' or omit setting to use default
+        theme: 'ios',             // Specify theme like: theme: 'ios' or omit setting to use default
+        swipe: false              // More info about swipe: https://docs.mobiscroll.com/4-5-3/javascript/calendar#opt-swipe
+    });
+</script>
+
+</body>
+</html>
